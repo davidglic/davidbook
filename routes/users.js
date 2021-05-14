@@ -5,5 +5,6 @@ const ctrl = require('../controllers')
 router.get('/', ctrl.users.index)
 router.get('/signup', ctrl.users.signUp)
 router.post('/signup', ctrl.users.createUser)
+router.get('/profile/:id', ctrl.users.show)
 
 module.exports = router

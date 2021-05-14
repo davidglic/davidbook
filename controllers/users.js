@@ -12,9 +12,17 @@ const createUser = (req, res) => {
     users.push(req.body)
     res.redirect('/users')
 }
+const show = (req, res) => {
+    for (let i = 0; i < users.length; i++) {
+        if (parseInt(users[i].uuid) === parseInt(req.params.id)) {
+            res.render('users/profile.ejs', {user: users[i]})
+        }
+    }
+}
 
 module.exports = {
     index,
     signUp,
-    createUser
+    createUser,
+    show
 }
