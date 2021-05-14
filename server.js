@@ -1,9 +1,14 @@
 const express = require('express')
 const app = express()
 
+const bodyParser = require('body-parser')
+
 const routes = require('./routes')
 
-app.use(express.static('public'))
+app.use(express.static('public')) //enable CSS @ public/css/*.css
+app.use(bodyParser.urlencoded( {extended: false }))
+
+
 app.use('/users', routes.users) //whenever we see a users address ferry to this router.
 
 
